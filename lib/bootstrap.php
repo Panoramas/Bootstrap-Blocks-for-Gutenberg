@@ -4,6 +4,7 @@
 */
 
 function enqueue_bootstrap_styles() {
+
   wp_register_style(
     'bootstrap',
     bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
@@ -13,4 +14,4 @@ function enqueue_bootstrap_styles() {
   wp_enqueue_style( 'bootstrap' );
 }
 
-add_action( 'init', 'enqueue_bootstrap_styles' );
+add_action( 'enqueue_block_editor_assets', 'enqueue_bootstrap_styles' );
