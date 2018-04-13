@@ -27,7 +27,7 @@ registerBlockType("bsgut/jumbotron-block", {
   description: __(
     "Lightweight, flexible component for showcasing hero unit style content."
   ),
-  keywords: ["bootstrap", "bsgut", "hero"],
+  keywords: ["bootstrap", "bsgut", "bs", "hero"],
   attributes: {
     fluidify: {
       type: "string"

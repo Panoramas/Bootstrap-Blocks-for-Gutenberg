@@ -20,7 +20,7 @@ registerBlockType("bsgut/alert-block", {
   description: __(
     "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
   ),
-  keywords: ["bootstrap", "bsgut", "message"],
+  keywords: ["bootstrap", "bsgut", "bs", "message"],
   attributes: {
     type: {
       type: "string",
