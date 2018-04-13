@@ -6,7 +6,10 @@ import {
   InspectorControls
 } from "@wordpress/blocks";
 import { Fragment } from "@wordpress/element";
-import { SelectControl } from "@wordpress/components";
+import {
+  SelectControl,
+  PanelBody
+} from "@wordpress/components";
 
 import "./style.scss";
 
@@ -37,22 +40,24 @@ registerBlockType("bsgut/alert-block", {
         </div>
 
         {isSelected && (
-          <InspectorControls>
-            <SelectControl
-              label="Message Type"
-              value={type}
-              options={[
-                { label: __("Primary"), value: "primary" },
-                { label: __("Secondary"), value: "secondary" },
-                { label: __("Success"), value: "success" },
-                { label: __("Danger"), value: "danger" },
-                { label: __("Warning"), value: "warning" },
-                { label: __("Info"), value: "info" },
-                { label: __("Light"), value: "light" },
-                { label: __("Dark"), value: "dark" }
-              ]}
-              onChange={updateType}
-            />
+          <InspectorControls key="inspector">
+            <PanelBody title={__( 'Alert Settings' )}>
+              <SelectControl
+                label= {__( "Message Type" )}
+                value={type}
+                options={[
+                  { label: __("Primary"), value: "primary" },
+                  { label: __("Secondary"), value: "secondary" },
+                  { label: __("Success"), value: "success" },
+                  { label: __("Danger"), value: "danger" },
+                  { label: __("Warning"), value: "warning" },
+                  { label: __("Info"), value: "info" },
+                  { label: __("Light"), value: "light" },
+                  { label: __("Dark"), value: "dark" }
+                ]}
+                onChange={updateType}
+              />
+            </PanelBody>
           </InspectorControls>
         )}
       </Fragment>

@@ -49,7 +49,7 @@ registerBlockType("bsgut/jumbotron-block", {
 
         {isSelected && (
           <InspectorControls key="inspector">
-            <PanelBody title={ __( 'Jumbotron Settings' ) }>
+            <PanelBody title={__( 'Jumbotron Settings' )}>
               <ToggleControl
                 label={__("Fluid jumbotron")}
                 checked={!!fluidify}
