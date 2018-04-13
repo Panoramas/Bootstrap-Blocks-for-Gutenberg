@@ -14,10 +14,12 @@ class Bsgut {
   }
 
   private function get_blocks() {
+    $blocks = array();
     $dir = array_filter(glob($this->blocks_dir . '/*'), 'is_dir');
     foreach ($dir as $key => $value) {
-      $this->blocks[] = $value;
+      $blocks[] = $value;
     }
+    return $blocks;
   }
 
   private function create_blocks() {
