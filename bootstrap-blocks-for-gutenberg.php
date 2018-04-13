@@ -6,13 +6,21 @@
  * Author: Panoramas
  */
 
-defined('ABSPATH') or die('Cheatin&#8217 much?');
+use \Bsgut\Autoloader;
+use \Bsgut\bsgut;
 
-require_once dirname( __FILE__ ) . '/lib/Bootstrap.php';
-require_once dirname( __FILE__ ) . '/lib/Common.php';
+defined('ABSPATH') or die('Cheatin&#8217, hu?');
 
-// blocks
-require_once dirname( __FILE__ ) . '/lib/first-block.php';
-require_once dirname( __FILE__ ) . '/lib/alert-block.php';
+// Languages
+function bsgut_load_textdomain() {
+  load_plugin_textdomain( 'bsgut', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'bsgut_load_textdomain' );
 
-// call the main class with the blocks directory as a param here
+
+// Get it running
+require 'classes/Autoloader.php';
+Autoloader::register();
+
+$bsgut = new Bsgut;
+$bsgut->run();
