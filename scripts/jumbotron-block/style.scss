@@ -1,0 +1,10 @@
+// Fix last innerBlock margin bottom (kinda hard way)
+.wp-block-bsgut-jumbotron-block {
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
