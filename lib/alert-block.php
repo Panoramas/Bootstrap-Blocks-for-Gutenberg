@@ -18,7 +18,6 @@ function register_bsgut_alert_block() {
   // Attach the script to the block
   register_block_type( 'bsgut/alert-block', array(
     'editor_script' => 'bsgut-alert-block',
-    'editor_style' => 'bsgut-alert-block',
     'style' => 'bsgut-alert-block',
   ) );
 }

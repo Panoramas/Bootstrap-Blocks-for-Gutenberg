@@ -1,0 +1,4 @@
+// Fix last innerBlock margin bottom (kinda hard way)  
+.wp-block-bsgut-alert-block *:last-child {
+  margin-bottom: 0;
+}
