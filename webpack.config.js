@@ -31,6 +31,7 @@ const extractConfig = {
 
 const entryPointNames = [
   "first-block",
+  "alert-block",
 ];
 
 const externals = {};
