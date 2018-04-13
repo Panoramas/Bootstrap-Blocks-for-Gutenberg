@@ -17,7 +17,7 @@ const getBlockClass = fluidify => {
 
 registerBlockType("bsgut/jumbotron-block", {
   title: __("Jumbotron"),
-  icon: __("welcome-learn-more"),
+  icon: "welcome-learn-more",
   category: "common",
   description: __(
     "Lightweight, flexible component for showcasing hero unit style content."

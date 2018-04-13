@@ -12,7 +12,7 @@ import "./style.scss";
 
 registerBlockType("bsgut/alert-block", {
   title: __("Alert"),
-  icon: __("welcome-learn-more"),
+  icon: "welcome-learn-more",
   category: "common",
   description: __(
     "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
