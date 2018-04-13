@@ -1,6 +1,8 @@
 <?php
 namespace Bsgut\Helper;
 
+defined('ABSPATH') or die('Cheatin&#8217, hu?');
+
 /**
  * Helper static functions
  */

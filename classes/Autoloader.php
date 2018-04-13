@@ -1,6 +1,8 @@
 <?php
 namespace Bsgut;
 
+defined('ABSPATH') or die('Cheatin&#8217, hu?');
+
 class Autoloader {
 
   static function register() {

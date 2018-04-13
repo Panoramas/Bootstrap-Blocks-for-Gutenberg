@@ -1,6 +1,8 @@
 <?php
 namespace Bsgut\Blocks;
 
+defined('ABSPATH') or die('Cheatin&#8217, hu?');
+
 class Blocks {
 
     public function __construct() {}
