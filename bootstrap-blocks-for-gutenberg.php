@@ -14,5 +14,6 @@ require_once dirname( __FILE__ ) . '/lib/Common.php';
 // blocks
 require_once dirname( __FILE__ ) . '/lib/first-block.php';
 require_once dirname( __FILE__ ) . '/lib/alert-block.php';
+require_once dirname( __FILE__ ) . '/lib/jumbotron-block.php';
 
 // call the main class with the blocks directory as a param here

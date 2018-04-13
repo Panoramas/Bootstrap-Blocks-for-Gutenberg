@@ -32,6 +32,7 @@ const extractConfig = {
 const entryPointNames = [
   "first-block",
   "alert-block",
+  "jumbotron-block",
 ];
 
 const externals = {};
