@@ -6,7 +6,12 @@ import {
   InspectorControls
 } from "@wordpress/blocks";
 import { Fragment } from "@wordpress/element";
-import { ToggleControl } from "@wordpress/components";
+import {
+  ToggleControl,
+  PanelBody
+} from "@wordpress/components";
+
+import "./style.scss";
 
 const getBlockClass = fluidify => {
   if (fluidify) {
@@ -43,15 +48,17 @@ registerBlockType("bsgut/jumbotron-block", {
         </div>
 
         {isSelected && (
-          <InspectorControls>
-            <ToggleControl
-              label={__("Fluid jumbotron")}
-              checked={!!fluidify}
-              help={__(
-                "To make the jumbotron full width, and without rounded corners."
-              )}
-              onChange={toggleFluidify}
-            />
+          <InspectorControls key="inspector">
+            <PanelBody title={ __( 'Jumbotron Settings' ) }>
+              <ToggleControl
+                label={__("Fluid jumbotron")}
+                checked={!!fluidify}
+                help={__(
+                  "To make the jumbotron full width, and without rounded corners."
+                )}
+                onChange={toggleFluidify}
+              />
+            </PanelBody>
           </InspectorControls>
         )}
       </Fragment>
