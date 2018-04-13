@@ -16,10 +16,19 @@ class Blocks {
                 'name' => __('Alert', 'bsgut'),
                 'dir' => 'alert-block',
                 'type' => 'content'
+              ),
+              'jumbotron' => array(
+                'name' => __('Jumbotron', 'bsgut'),
+                'dir' => 'jumbotron-block',
+                'type' => 'content'
               )
             );
     }
 
-    static function get_block($block) {}
+    static function get_categories() {
+      return array(
+                 'bootstrap'    => __( 'Bootstrap', 'bsgut' )
+             );
+    }
 
 }
