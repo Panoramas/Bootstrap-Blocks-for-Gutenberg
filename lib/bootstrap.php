@@ -10,7 +10,6 @@ function enqueue_bootstrap_styles() {
     bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
     array()
   );
-
   wp_enqueue_style( 'bootstrap' );
 }
 
