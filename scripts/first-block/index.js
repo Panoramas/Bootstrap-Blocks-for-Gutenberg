@@ -14,7 +14,7 @@ registerBlockType("bsgut/intro-block", {
   description: "This block introduces you to block creation",
 
   // Keywords to search for the block
-  keywords: ["bootstrap", "gutenberg", "bs", "bsgut"],
+  keywords: ["bootstrap", "gutenberg", "bsgut"],
 
   // Block's editor representation
   edit({ className }) {

@@ -8,6 +8,7 @@ import {
 import { Fragment } from "@wordpress/element";
 import {
   SelectControl,
+  ToggleControl,
   PanelBody
 } from "@wordpress/components";
 
@@ -20,22 +21,37 @@ registerBlockType("bsgut/alert-block", {
   description: __(
     "Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
   ),
-  keywords: ["bootstrap", "bsgut", "bs", "message"],
+  keywords: ["bootstrap", "bsgut", "message"],
   attributes: {
     type: {
       type: "string",
       default: "info"
+    },
+    dismissable: {
+      type: "boolean",
+      default: false
+    },
+    title: {
+      type: "string",
+      selector: 'h4.alert-heading'
     }
   },
 
   edit({ className, attributes, setAttributes, isSelected }) {
-    const { type } = attributes;
+    const { type, dismissable, title } = attributes;
 
     const updateType = type => setAttributes({ type });
+    const updateDismissable = dismissable => setAttributes({ dismissable });
+    const updateTitle = title => setAttributes({ title });
 
     return (
       <Fragment>
         <div className={className + " alert alert-" + type}>
+          {dismissable == true &&
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+           }
           <InnerBlocks />
         </div>
 
@@ -55,7 +71,18 @@ registerBlockType("bsgut/alert-block", {
                   { label: __("Light"), value: "light" },
                   { label: __("Dark"), value: "dark" }
                 ]}
+                help={__(
+                  "Select the type of your alert."
+                )}
                 onChange={updateType}
+              />
+              <ToggleControl
+                label={__("Dismissable")}
+                checked={!!dismissable}
+                help={__(
+                  "Enable to display a close button on the upper right corner."
+                )}
+                onChange={updateDismissable}
               />
             </PanelBody>
           </InspectorControls>
@@ -65,9 +92,9 @@ registerBlockType("bsgut/alert-block", {
   },
 
   save({ attributes }) {
-    const { type, message } = attributes;
+    const { type, dismissable, title } = attributes;
     return (
-      <div className={"alert alert-" + type} role="alert">
+      <div className={"alert alert-" + type}>
         <InnerBlocks.Content />
       </div>
     );
