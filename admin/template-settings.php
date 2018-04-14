@@ -6,6 +6,9 @@
   <?php settings_fields( Consts::SETTINGS_GROUP ); ?>
   <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
 
+  ======================================
+  <?php var_dump(settings_fields( Consts::SETTINGS_GROUP )); ?>
+  ======================================
 
   <header class="bsgut-settings__header">
     <h1>testing testing yeaaah</h1>

@@ -6,7 +6,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 // Main CSS loader for everything but blocks..
 const cssExtractTextPlugin = new ExtractTextPlugin({
-  filename: "./scripts/[name]/build/style.css"
+  filename: "./blocks/[name]/build/style.css"
 });
 
 // Configuration for the ExtractTextPlugin.
@@ -58,12 +58,12 @@ wpDependencies.forEach(wpDependency => {
 
 const config = {
   entry: entryPointNames.reduce((memo, entryPointName) => {
-    memo[entryPointName] = "./scripts/" + entryPointName + "/index.js";
+    memo[entryPointName] = "./blocks/" + entryPointName + "/index.js";
     return memo;
   }, {}),
   externals,
   output: {
-    filename: "scripts/[name]/build/index.js",
+    filename: "blocks/[name]/build/index.js",
     path: __dirname,
     library: ["bsgut", "[name]"],
     libraryTarget: "this"

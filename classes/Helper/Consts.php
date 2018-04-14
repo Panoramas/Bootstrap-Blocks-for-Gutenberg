@@ -12,6 +12,6 @@ abstract class Consts{
   const VERSION = '1.0';
 
   const SETTINGS_GROUP = 'bsgut-settings';
-	const BLOCKS_SCRIPT = 'scripts';
+	const BLOCKS_SCRIPT = 'blocks';
 
 }

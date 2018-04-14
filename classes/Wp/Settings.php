@@ -28,6 +28,8 @@ class Settings {
 
     public function register_settings() {
       register_setting( Consts::SETTINGS_GROUP, "test-setting" );
+      // sooo here, for each block in Blocks =>
+      // setting => bsgut-setting-BlockDIR = { enabled: true; replace: true; }
     }
 
     public function settings_page(){

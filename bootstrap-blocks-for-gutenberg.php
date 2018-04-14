@@ -8,15 +8,9 @@
 
 use \Bsgut\Autoloader;
 use \Bsgut\bsgut;
+use \Bsgut\Helper\Consts;
 
 defined('ABSPATH') or die('Cheatin&#8217, hu?');
-
-// Languages
-function bsgut_load_textdomain() {
-  load_plugin_textdomain( 'bsgut', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'bsgut_load_textdomain' );
-
 
 // Get it running
 require 'classes/Autoloader.php';
@@ -24,3 +18,9 @@ Autoloader::register();
 
 $bsgut = new Bsgut;
 $bsgut->run();
+
+// Languages
+function bsgut_load_textdomain() {
+  load_plugin_textdomain( Consts::LANG_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'bsgut_load_textdomain' );
