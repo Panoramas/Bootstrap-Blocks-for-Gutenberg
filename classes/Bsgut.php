@@ -40,6 +40,10 @@ class Bsgut {
     // register bootstrap for the editor
     add_action( 'enqueue_block_editor_assets', array( $this, 'register_editor_styles') );
     // call get_blocks and create_blocks
+    $this->registerBlocks();
+  }
+
+  private function registerBlocks() {
     foreach ($this->blocks as $block => $datas) {
       $block = new Block($datas);
       $block->run();
