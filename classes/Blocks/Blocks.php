@@ -12,7 +12,8 @@ class Blocks {
               'first' => array(
                 'name' => __('First', 'bsgut'),
                 'dir' => 'first-block',
-                'type' => 'content'
+                'type' => 'content',
+                'css' => false
               ),
               'alert' => array(
                 'name' => __('Alert', 'bsgut'),

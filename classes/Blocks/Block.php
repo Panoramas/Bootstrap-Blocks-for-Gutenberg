@@ -34,6 +34,8 @@ class Block {
       array( 'wp-blocks', 'wp-element' )
     );
 
+    // if $this->block['css'] = true
+
     register_block_type( 'bsgut/'.$this->block['dir'], array(
       'editor_script' => 'bsgut-'.$this->block['dir'],
       'editor_style' => 'bsgut-'.$this->block['dir'],

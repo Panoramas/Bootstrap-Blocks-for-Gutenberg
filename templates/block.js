@@ -8,6 +8,7 @@ import { Fragment } from "@wordpress/element";
 import {
   PanelBody
 } from "@wordpress/components";
+>>CSS<<
 
 registerBlockType("bsgut/>>FOLDER<<", {
   title: __(">>NAME<<"),
