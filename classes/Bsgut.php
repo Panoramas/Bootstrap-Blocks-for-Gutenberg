@@ -4,6 +4,7 @@ namespace Bsgut;
 defined('ABSPATH') or die('Cheatin&#8217, hu?');
 
 use Bsgut\Helper\Helper;
+use Bsgut\Helper\Consts;
 
 use Bsgut\Wp\Settings;
 
@@ -41,6 +42,10 @@ class Bsgut {
     add_action( 'enqueue_block_editor_assets', array( $this, 'register_editor_styles') );
     // call get_blocks and create_blocks
     $this->registerBlocks();
+
+    // settings page
+    $settings = new Settings();
+    $settings->run();
   }
 
   private function registerBlocks() {
