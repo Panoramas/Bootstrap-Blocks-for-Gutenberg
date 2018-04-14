@@ -44,30 +44,30 @@ module.exports = function (plop) {
         var actions = [
           {
             type: 'add',
-            path: 'scripts/{{folder}}/index.js',
+            path: 'blocks/{{folder}}/index.js',
             templateFile: 'templates/block.js'
           },
           {
             type: 'modify',
-            path: 'scripts/{{folder}}/index.js',
+            path: 'blocks/{{folder}}/index.js',
             pattern: />>NAME<</gi,
             template: '{{name}}'
           },
           {
             type: 'modify',
-            path: 'scripts/{{folder}}/index.js',
+            path: 'blocks/{{folder}}/index.js',
             pattern: />>FOLDER<</gi,
             template: '{{folder}}'
           },
           {
             type: 'modify',
-            path: 'scripts/{{folder}}/index.js',
+            path: 'blocks/{{folder}}/index.js',
             pattern: />>DEP1<</gi,
             template: '{{dep1}}'
           },
           {
             type: 'modify',
-            path: 'scripts/{{folder}}/index.js',
+            path: 'blocks/{{folder}}/index.js',
             pattern: />>DEP2<</gi,
             template: '{{dep2}}'
           }
@@ -77,18 +77,18 @@ module.exports = function (plop) {
   				actions = actions.concat([
   					{
   						type: 'add',
-              path: 'scripts/{{folder}}/index.css',
+              path: 'blocks/{{folder}}/index.css',
               templateFile: 'templates/block.css'
   					},
             {
               type: 'modify',
-              path: 'scripts/{{folder}}/index.js',
+              path: 'blocks/{{folder}}/index.js',
               pattern: />>CSS<</gi,
               template: 'import "./style.scss";'
             },
             {
               type: 'modify',
-              path: 'scripts/{{folder}}/index.css',
+              path: 'blocks/{{folder}}/index.css',
               pattern: />>NAME<</gi,
               template: '{{name}}'
             }
@@ -97,7 +97,7 @@ module.exports = function (plop) {
           actions = actions.concat([
             {
               type: 'modify',
-              path: 'scripts/{{folder}}/index.js',
+              path: 'blocks/{{folder}}/index.js',
               pattern: />>CSS<</gi,
               template: ''
             }

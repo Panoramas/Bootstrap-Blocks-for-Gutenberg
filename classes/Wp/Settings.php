@@ -10,6 +10,8 @@ defined('ABSPATH') or die('Cheatin&#8217, hu?');
 
 class Settings {
 
+    private $blocks;
+
     public function run() {
       add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
       add_action( 'admin_init', array( $this, 'register_settings' ) );
@@ -24,15 +26,24 @@ class Settings {
   			array( $this, 'settings_page' ),
         'dashicons-admin-generic'
       );
-    }
+  }
 
     public function register_settings() {
-      register_setting( Consts::SETTINGS_GROUP, "test-setting" );
       // sooo here, for each block in Blocks =>
-      // setting => bsgut-setting-BlockDIR = { enabled: true; replace: true; }
+      $this->blocks = Blocks::get_blocks();
+
+      foreach ($this->blocks as $block_name => $block_datas) {
+        $option_name = Consts::PLUGIN_PREFIX . "-setting-" . $block_datas['dir'] . "-enabled";
+        update_option( $option_name, true); // CAN BE AN ARRAY, malke an array OF ALL anabled and ALL replaced
+        register_setting( Consts::SETTINGS_GROUP, $option_name );
+      }
     }
 
     public function settings_page(){
       require_once Helper::bsgut_dir_path() . 'admin/template-settings.php';
   	}
+
+    public function toggle_block() {}
+
+    public function toggle_block_replace() {}
 }
