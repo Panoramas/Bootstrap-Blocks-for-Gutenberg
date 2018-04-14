@@ -1,13 +1,8 @@
 const { __ } = wp.i18n; // Import __() from wp.i18n
 
-import {
-  registerBlockType,
-  InspectorControls
-} from "@wordpress/blocks";
+import { >>DEP1<< } from "@wordpress/blocks";
 import { Fragment } from "@wordpress/element";
-import {
-  PanelBody
-} from "@wordpress/components";
+import { >>DEP2<< } from "@wordpress/components";
 >>CSS<<
 
 registerBlockType("bsgut/>>FOLDER<<", {
