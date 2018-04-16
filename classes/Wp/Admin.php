@@ -34,11 +34,7 @@ class Admin {
 		);
 	}
 
-  public function enqueue_editor_styles($hook) {
-		if( strpos( $hook, Consts::PLUGIN_PREFIX ) === false ) {
-			return;
-		}
-
+  public function enqueue_editor_styles() {
     wp_enqueue_style(
       Consts::PLUGIN_PREFIX.'-bootstrap',
       Helper::bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
