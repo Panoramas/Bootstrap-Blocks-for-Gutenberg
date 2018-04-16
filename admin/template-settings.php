@@ -5,7 +5,9 @@
 
 
 ====================================== <br>
+<b>enabled blocks</b><br>
 <?php var_dump( get_option( Consts::SETTING_ENABLED ) ); ?> <br>
+<b>replacing</b><br>
 <?php var_dump( get_option( Consts::SETTING_REPLACE ) ); ?> <br>
 ====================================== <br>
 
