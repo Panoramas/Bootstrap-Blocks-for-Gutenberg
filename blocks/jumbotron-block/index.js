@@ -10,15 +10,11 @@ import {
   ToggleControl,
   PanelBody
 } from "@wordpress/components";
+import {
+  Jumbotron
+} from 'reactstrap';
 
 import "./style.scss";
-
-const getBlockClass = fluidify => {
-  if (fluidify) {
-    return " jumbotron jumbotron-fluid";
-  }
-  return " jumbotron";
-};
 
 registerBlockType("bsgut/jumbotron-block", {
   title: __( "Jumbotron" ),
@@ -27,7 +23,11 @@ registerBlockType("bsgut/jumbotron-block", {
   description: __(
     "Lightweight, flexible component for showcasing hero unit style content."
   ),
-  keywords: ["bootstrap", "bsgut", "hero"],
+  keywords: [
+    "bootstrap",
+    "bsgut",
+    __( "hero" )
+  ],
   attributes: {
     fluidify: {
       type: "string"
@@ -39,13 +39,11 @@ registerBlockType("bsgut/jumbotron-block", {
 
     const toggleFluidify = fluidify => setAttributes({ fluidify });
 
-    let blockClass = getBlockClass(fluidify);
-
     return (
       <Fragment>
-        <div className={className + blockClass}>
+        <Jumbotron className={ className } fluid={ fluidify }>
           <InnerBlocks />
-        </div>
+        </Jumbotron>
 
         {isSelected && (
           <InspectorControls key="inspector">
@@ -68,12 +66,10 @@ registerBlockType("bsgut/jumbotron-block", {
   save({ attributes }) {
     const { fluidify } = attributes;
 
-    let blockClass = getBlockClass(fluidify);
-
     return (
-      <div className={blockClass}>
+      <Jumbotron fluid={ fluidify }>
         <InnerBlocks.Content />
-      </div>
+      </Jumbotron>
     );
   }
 });

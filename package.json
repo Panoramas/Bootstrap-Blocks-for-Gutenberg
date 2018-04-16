@@ -9,8 +9,9 @@
     "jquery": "^1.9.1",
     "lodash": "^4.17.4",
     "popper.js": "^1.14.3",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "reactstrap": "^5.0.0-beta.3"
   },
   "scripts": {
     "build": "cross-env BABEL_ENV=default NODE_ENV=production webpack",
