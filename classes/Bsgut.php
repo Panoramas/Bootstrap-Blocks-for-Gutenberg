@@ -6,6 +6,7 @@ defined('ABSPATH') or die('Cheatin&#8217, hu?');
 use Bsgut\Helper\Helper;
 use Bsgut\Helper\Consts;
 
+use Bsgut\Wp\Admin;
 use Bsgut\Wp\Settings;
 
 use Bsgut\Blocks\Blocks;
@@ -38,32 +39,25 @@ class Bsgut {
    * @return [type] [description]
    */
   public function run() {
-    // register bootstrap for the editor
-    add_action( 'enqueue_block_editor_assets', array( $this, 'register_editor_styles') );
+    // register and enqueue assets
+    $admin = new Admin();
+    $admin->register_hooks();
+
     // call get_blocks and create_blocks
-    $this->registerBlocks();
+    $this->register_blocks();
 
     // settings page
     $settings = new Settings();
     $settings->run();
   }
 
-  private function registerBlocks() {
+  private function register_blocks() {
     foreach ($this->blocks as $block => $datas) {
-      $block = new Block($datas);
+      $block = new Block($block, $datas);
       $block->run();
     }
   }
 
-  public function register_editor_styles() {
-    wp_register_style(
-      'bootstrap',
-      Helper::bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
-      array()
-    );
-    wp_enqueue_style( 'bootstrap' );
-  }
-
-  public function register_efitor_categories() {}
+  public function register_editor_categories() {}
 
 }

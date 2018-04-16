@@ -5,7 +5,8 @@
 
 
 ====================================== <br>
-<?php var_dump( get_option( "bsgut-setting-alert-block-enabled" ) ); ?> <br>
+<?php var_dump( get_option( Consts::SETTING_ENABLED ) ); ?> <br>
+<?php var_dump( get_option( Consts::SETTING_REPLACE ) ); ?> <br>
 ====================================== <br>
 
 <header class="bsgut-settings__header">
@@ -25,24 +26,56 @@
   </ul>
 </header>
 
-<form method="post" action="options.php" class="bsgut-settings">
-  <?php settings_fields( Consts::SETTINGS_GROUP ); ?>
-  <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
+<main>
+  <form method="post" action="options.php" class="bsgut-settings">
+    <?php settings_fields( Consts::SETTINGS_GROUP ); ?>
+    <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
 
-  <table class="form-table">
-          <tr valign="top">
-          <th scope="row">enable the alert block</th>
-          <td>
-            <input
-              type="checkbox"
-              id="defaultCheck2"
-              name="bsgut-setting-alert-block-enabled"
-              value="<?php echo esc_attr( get_option("bsgut-setting-alert-block-enabled") ); ?>"
-              <?php checked( 1 == get_option("bsgut-setting-alert-block-enabled")); ?>>
-          </tr>
-    </table>
+    <!-- <table class="form-table">
+            <tr valign="top">
+            <th scope="row">enable the alert block</th>
+            <td>
+              <input
+                type="checkbox"
+                id="defaultCheck2"
+                name="bsgut-setting-alert-block-enabled"
+                value="<?php echo esc_attr( get_option("bsgut-setting-alert-block-enabled") ); ?>"
+                <?php checked( 1 == get_option("bsgut-setting-alert-block-enabled")); ?>>
+            </tr>
+      </table>
 
-<?php submit_button(); ?>
-
-</form>
+  <?php submit_button(); ?> -->
+    <h2>Blocks =></h3>
+    <hr>
+    <h3>Catégorie 1 (content)</h3>
+    <ul>
+      <?php
+        $settings_enablded = get_option(Consts::SETTING_ENABLED);
+        $settings_replace = get_option(Consts::SETTING_ENABLED);
+      ?>
+      <?php foreach ($this->blocks as $block => $datas): ?>
+        <?php
+          $block_enabled = false;
+          $block_enabled_check = "";
+          if( $settings_enablded[$block] == true) {
+            $block_enabled = true;
+            $block_enabled_check = "checked";
+          }
+        ?>
+        <li class="block-list__item">
+          <?php if ( isset($datas['icon']) ): ?>
+            <span class="dashicons-before dashicons-<?php echo $datas['icon']; ?>"></span>
+          <?php endif; ?>
+          <h4><?php echo $block ?></h4>
+          <p><?php echo $datas['description']; ?></p>
+          <span class="block-toggle">
+            <input type="checkbox" name="" class="block-toggle__check" data-block="<?php echo $block; ?>" <?php echo $block_enabled_check; ?>>
+          </span>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+    <hr>
+    <button class="bsgut_restore-default" type="button" name="button">restore defaults</button>
+  </form>
+</main>
 </div>

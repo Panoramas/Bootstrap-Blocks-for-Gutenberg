@@ -12,9 +12,21 @@ class Settings {
 
     private $blocks;
 
+    public function __construct() {
+      $this->blocks = Blocks::get_blocks();
+    }
+
     public function run() {
+      // check if options exists
+      $this->create_settings();
+
+      // create settings page register settings
       add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
       add_action( 'admin_init', array( $this, 'register_settings' ) );
+
+      // use AJAX to toggle blocks and restore default options
+      add_action( 'wp_ajax_toggle_block', array( $this, 'toggle_block' ) );
+      add_action( 'wp_ajax_restore_default', array( $this, 'restore_default' ) );
     }
 
     public function add_admin_menu() {
@@ -29,13 +41,26 @@ class Settings {
   }
 
     public function register_settings() {
-      // sooo here, for each block in Blocks =>
-      $this->blocks = Blocks::get_blocks();
+      register_setting( Consts::SETTINGS_GROUP, Consts::SETTING_ENABLED );
+      register_setting( Consts::SETTINGS_GROUP, Consts::SETTING_REPLACE );
+    }
 
-      foreach ($this->blocks as $block_name => $block_datas) {
-        $option_name = Consts::PLUGIN_PREFIX . "-setting-" . $block_datas['dir'] . "-enabled";
-        update_option( $option_name, true); // CAN BE AN ARRAY, malke an array OF ALL anabled and ALL replaced
-        register_setting( Consts::SETTINGS_GROUP, $option_name );
+    public function create_settings() {
+      if(!get_option(Consts::SETTING_ENABLED)){
+        $blocks = array();
+        foreach ($this->blocks as $block => $datas) {
+          $blocks[$block] = true;
+        }
+        add_option( Consts::SETTING_ENABLED, $blocks );
+      }
+      if(!get_option(Consts::SETTING_REPLACE)){
+        $replaced = array();
+        foreach ($this->blocks as $block => $datas) {
+          if (isset($datas['replace']) &&  $datas['replace'] != false) {
+            $replaced[$block] = $datas['replace'];
+          }
+        }
+        add_option( Consts::SETTING_REPLACE, $replaced );
       }
     }
 
@@ -43,7 +68,36 @@ class Settings {
       require_once Helper::bsgut_dir_path() . 'admin/template-settings.php';
   	}
 
-    public function toggle_block() {}
+    public function restore_default() {
+      $this->reset_settings();
+    }
+
+    public function toggle_block() {
+      $block_type = $_POST['block'];
+
+      $enabled_list = get_option( Consts::SETTING_ENABLED );
+      $block_value = $enabled_list[$block_type];
+
+      $enabled_list[$block_type] = !$block_value;
+
+      update_option( Consts::SETTING_ENABLED, $enabled_list);
+
+      return var_dump( $block_value );
+    }
 
     public function toggle_block_replace() {}
+
+    public function update_settings($setting, $blocks) {
+      update_option( $setting, $blocks);
+    }
+
+    public function reset_settings() {
+      $this->delete_settings();
+      $this->create_settings();
+    }
+
+    public function delete_settings() {
+      delete_option( Consts::SETTING_ENABLED );
+      delete_option( Consts::SETTING_REPLACE );
+    }
 }

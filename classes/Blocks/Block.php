@@ -13,20 +13,27 @@ class Block {
    * @var [type]
    */
   private $block;
+  private $block_key;
+  private $enabled_list;
+  private $replaced_list;
 
   /**
    * [__construct description]
    * @param [type] $block [description]
    */
-  public function __construct($block) {
+  public function __construct($block_key, $block = array()) {
     $this->block = $block;
+    $this->block_key = $block_key;
+    $this->enabled_list = get_option(Consts::SETTING_ENABLED);
+    $this->replaced_list = get_option(Consts::SETTING_REPLACE);
   }
 
   public function run() {
     // here, IF bsgut-stting-BlockDIR[enabled] == true
+    if($this->enabled_list[$this->block_key] == true) {
       add_action( 'init', array( $this, 'registerBlock'));
       // IF bsgut-stting-BlockDIR[replace] == true, disable the other one
-    // endif
+    }
   }
 
   // in run, call the assets (enqueue scripts and all) for this block

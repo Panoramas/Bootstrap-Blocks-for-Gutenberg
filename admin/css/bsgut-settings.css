@@ -1,0 +1,7 @@
+.block-list {}
+
+.block-list__item {
+  background: white;
+  padding: 15px;
+  border-radius: 6px;
+}

@@ -12,6 +12,8 @@ abstract class Consts{
   const VERSION = '1.0';
 
   const SETTINGS_GROUP = 'bsgut-settings';
-	const BLOCKS_SCRIPT = 'blocks';
+  const SETTING_ENABLED = Consts::PLUGIN_PREFIX . "-setting-enabled";
+  const SETTING_REPLACE = Consts::PLUGIN_PREFIX . "-setting-replace";
 
+	const BLOCKS_SCRIPT = 'blocks';
 }
