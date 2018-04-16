@@ -7,10 +7,10 @@ import { >>DEP2<< } from "@wordpress/components";
 
 registerBlockType("bsgut/>>FOLDER<<", {
   title: __(">>NAME<<"),
-  icon: "welcome-learn-more",
+  icon: ">>ICON<<",
   category: "common",
-  description: __("Some description"),
-  keywords: ["bootstrap", "bsgut"],
+  description: __(">>DESCRIPTION<<"),
+  keywords: [ __("bootstrap"), __("bsgut"), __(">>KEYWORD<<") ],
   attributes: {
     attr: {
       type: "string"
