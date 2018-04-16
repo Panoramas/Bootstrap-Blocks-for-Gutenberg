@@ -68,8 +68,6 @@ class Settings {
       require_once Helper::bsgut_dir_path() . 'admin/template-settings.php';
   	}
 
-    public function bsgut_toggle_block_replace() {}
-
     public function update_settings($setting, $blocks) {
       update_option( $setting, $blocks);
     }
@@ -97,7 +95,7 @@ class Settings {
       $enabled_list[$block_type] = !$block_value;
 
       update_option( Consts::SETTING_ENABLED, $enabled_list);
-
-      return var_dump( $block_value );
     }
+
+    public function bsgut_toggle_block_replace() {}
 }

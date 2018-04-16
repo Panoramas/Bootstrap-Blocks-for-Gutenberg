@@ -64,13 +64,15 @@
             $block_enabled_check = "checked";
           }
         ?>
-        <li class="block-list__item">
+        <li class="block-list__item block-item">
           <?php if ( isset($datas['icon']) ): ?>
-            <span class="dashicons-before dashicons-<?php echo $datas['icon']; ?>"></span>
+            <span class="block-item__icon dashicons-before dashicons-<?php echo $datas['icon']; ?>"></span>
+          <?php elseif ( isset($datas['svg']) ): ?>
+            svg goes here
           <?php endif; ?>
-          <h4><?php echo $block ?></h4>
-          <p><?php echo $datas['description']; ?></p>
-          <span class="block-toggle">
+          <h4 class="block-item__title"><?php echo $block ?></h4>
+          <p class="block-item__description"><?php echo $datas['description']; ?></p>
+          <span class="block-toggle block-item__toggle">
             <input type="checkbox" name="" class="block-toggle__check" data-block="<?php echo $block; ?>" <?php echo $block_enabled_check; ?>>
           </span>
         </li>

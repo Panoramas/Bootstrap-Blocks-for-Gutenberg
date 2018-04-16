@@ -16,4 +16,5 @@ abstract class Consts{
   const SETTING_REPLACE = Consts::PLUGIN_PREFIX . "-setting-replace";
 
 	const BLOCKS_SCRIPT = 'blocks';
+  const BLOCKS_JSON = 'blocks';
 }

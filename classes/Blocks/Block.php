@@ -30,7 +30,7 @@ class Block {
 
   public function run() {
     // here, IF bsgut-stting-BlockDIR[enabled] == true
-    if($this->enabled_list[$this->block_key] == true) {
+    if(isset($this->enabled_list[$this->block_key]) && $this->enabled_list[$this->block_key] == true) {
       add_action( 'init', array( $this, 'registerBlock'));
       // IF bsgut-stting-BlockDIR[replace] == true, disable the other one
     }
