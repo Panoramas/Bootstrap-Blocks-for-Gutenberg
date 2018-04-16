@@ -25,8 +25,8 @@ class Settings {
       add_action( 'admin_init', array( $this, 'register_settings' ) );
 
       // use AJAX to toggle blocks and restore default options
-      add_action( 'wp_ajax_toggle_block', array( $this, 'toggle_block' ) );
-      add_action( 'wp_ajax_restore_default', array( $this, 'restore_default' ) );
+      add_action( 'wp_ajax_bsgut_toggle_block', array( $this, 'bsgut_toggle_block' ) );
+      add_action( 'wp_ajax_bsgut_restore_default', array( $this, 'bsgut_restore_default' ) );
     }
 
     public function add_admin_menu() {
@@ -68,24 +68,7 @@ class Settings {
       require_once Helper::bsgut_dir_path() . 'admin/template-settings.php';
   	}
 
-    public function restore_default() {
-      $this->reset_settings();
-    }
-
-    public function toggle_block() {
-      $block_type = $_POST['block'];
-
-      $enabled_list = get_option( Consts::SETTING_ENABLED );
-      $block_value = $enabled_list[$block_type];
-
-      $enabled_list[$block_type] = !$block_value;
-
-      update_option( Consts::SETTING_ENABLED, $enabled_list);
-
-      return var_dump( $block_value );
-    }
-
-    public function toggle_block_replace() {}
+    public function bsgut_toggle_block_replace() {}
 
     public function update_settings($setting, $blocks) {
       update_option( $setting, $blocks);
@@ -99,5 +82,22 @@ class Settings {
     public function delete_settings() {
       delete_option( Consts::SETTING_ENABLED );
       delete_option( Consts::SETTING_REPLACE );
+    }
+
+    public function bsgut_restore_default() {
+      $this->reset_settings();
+    }
+
+    public function bsgut_toggle_block() {
+      $block_type = $_POST['block'];
+
+      $enabled_list = get_option( Consts::SETTING_ENABLED );
+      $block_value = $enabled_list[$block_type];
+
+      $enabled_list[$block_type] = !$block_value;
+
+      update_option( Consts::SETTING_ENABLED, $enabled_list);
+
+      return var_dump( $block_value );
     }
 }

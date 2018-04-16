@@ -1,7 +1,9 @@
-.block-list {}
+.bsgut-settings__header {}
+.bsgut-settings__main {}
 
-.block-list__item {
-  background: white;
-  padding: 15px;
-  border-radius: 6px;
-}
+  .block-list {}
+  .block-list__item {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+  }

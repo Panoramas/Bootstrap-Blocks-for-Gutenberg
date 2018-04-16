@@ -28,7 +28,7 @@
   </ul>
 </header>
 
-<main>
+<main class="bsgut-settings__main">
   <form method="post" action="options.php" class="bsgut-settings">
     <?php settings_fields( Consts::SETTINGS_GROUP ); ?>
     <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
@@ -77,6 +77,8 @@
       <?php endforeach; ?>
     </ul>
     <hr>
+    <button class="test" type="button" name="button">enable all (marche pas pour le moment)</button>
+    <button class="test" type="button" name="button">disable all (marche pas pour le moment)</button>
     <button class="bsgut_restore-default" type="button" name="button">restore defaults</button>
   </form>
 </main>

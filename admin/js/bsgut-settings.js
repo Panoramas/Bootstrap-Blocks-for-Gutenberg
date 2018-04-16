@@ -43,7 +43,7 @@
 
         var block = $(this).data('block')
         var data = {
-              action: 'toggle_block',
+              action: 'bsgut_toggle_block',
               block: $(this).attr("data-block")
             }
 
@@ -63,7 +63,7 @@
         e.preventDefault()
 
         var data = {
-              action: 'restore_default'
+              action: 'bsgut_restore_default'
             }
 
         $.ajax({
