@@ -1,5 +1,4 @@
 import { registerBlockType } from '@wordpress/blocks'
-import React from '@wordpress/element'
 
 registerBlockType('bsgut/intro-block', {
   // Title of the block.

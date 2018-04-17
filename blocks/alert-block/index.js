@@ -3,7 +3,7 @@ import {
   InnerBlocks,
   InspectorControls
 } from '@wordpress/blocks'
-import React, { Fragment } from '@wordpress/element'
+import { Fragment } from '@wordpress/element'
 import { SelectControl, ToggleControl, PanelBody } from '@wordpress/components'
 import { Alert } from 'reactstrap'
 import { __ } from '@wordpress/i18n'

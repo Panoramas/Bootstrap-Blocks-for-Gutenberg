@@ -44,12 +44,15 @@ entryPointNames.forEach(entryPointName => {
 
 const wpDependencies = [
   "components",
+  "i18n",
   "element",
+  "date",
   "blocks",
   "hooks",
   "data",
   "editPost",
-  "i18n"
+  "editor",
+  "utils",
 ];
 wpDependencies.forEach(wpDependency => {
   externals["@wordpress/" + wpDependency] = {
