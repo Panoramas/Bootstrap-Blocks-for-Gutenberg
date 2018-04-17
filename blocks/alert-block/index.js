@@ -6,11 +6,8 @@ import {
   InspectorControls
 } from "@wordpress/blocks";
 import { Fragment } from "@wordpress/element";
-import {
-  SelectControl,
-  ToggleControl,
-  PanelBody
-} from "@wordpress/components";
+import { SelectControl, ToggleControl, PanelBody } from "@wordpress/components";
+import { Alert } from "reactstrap";
 
 import "./style.scss";
 
@@ -33,7 +30,7 @@ registerBlockType("bsgut/alert-block", {
     },
     title: {
       type: "string",
-      selector: 'h4.alert-heading'
+      selector: "h4.alert-heading"
     }
   },
 
@@ -46,20 +43,15 @@ registerBlockType("bsgut/alert-block", {
 
     return (
       <Fragment>
-        <div className={className + " alert alert-" + type}>
-          {dismissable == true &&
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-           }
+        <Alert className={className} color={type} toggle={dismissable}>
           <InnerBlocks />
-        </div>
+        </Alert>
 
         {isSelected && (
           <InspectorControls key="inspector">
-            <PanelBody title={__( 'Alert Settings' )}>
+            <PanelBody title={__("Alert Settings")}>
               <SelectControl
-                label= {__( "Message Type" )}
+                label={__("Message Type")}
                 value={type}
                 options={[
                   { label: __("Primary"), value: "primary" },
@@ -71,9 +63,7 @@ registerBlockType("bsgut/alert-block", {
                   { label: __("Light"), value: "light" },
                   { label: __("Dark"), value: "dark" }
                 ]}
-                help={__(
-                  "Select the type of your alert."
-                )}
+                help={__("Select the type of your alert.")}
                 onChange={updateType}
               />
               <ToggleControl
@@ -93,8 +83,19 @@ registerBlockType("bsgut/alert-block", {
 
   save({ attributes }) {
     const { type, dismissable, title } = attributes;
+
     return (
       <div className={"alert alert-" + type}>
+        {dismissable == true && (
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        )}
         <InnerBlocks.Content />
       </div>
     );
