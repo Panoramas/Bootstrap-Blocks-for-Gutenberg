@@ -1,0 +1,10 @@
+{
+  "extends": ["standard", "standard-react"],
+  "globals": {
+    "wp": true
+  },
+  "rules": {
+     "jsx-quotes": [2, "prefer-double"],
+     "react/prop-types": "0"
+    }
+}
