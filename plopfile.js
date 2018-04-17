@@ -147,30 +147,9 @@ module.exports = function (plop) {
 
         actions = actions.concat([
           function customAction(answers) {
-      				// // move the current working directory to the plop file path
-      				// // this allows this action to work even when the generator is
-      				// // executed from inside a subdirectory
-      				// process.chdir(plop.getPlopfilePath());
-              //
-      				// // custom function can be synchronous or async (by returning a promise)
-      				// var fs = require('fs');
-      				// var existsMsg = 'psst {{name}}, change-me.txt already exists';
-      				// var copiedMsg = 'hey {{name}}, I copied change-me.txt for you';
-      				// var changeFileName = 'change-me.txt';
-      				// var changeFilePath = 'folder/' + changeFileName;
-              //
-      				// // you can use plop.renderString to render templates
-      				// existsMsg = plop.renderString(existsMsg, answers);
-      				// copiedMsg = plop.renderString(copiedMsg, answers);
-              //
-      				// if (fs.existsSync(changeFilePath)) {
-      				// 	// returned value shows up in the console
-      				// 	return existsMsg;
-      				// } else {
-      				// 	// do a synchronous copy via node fs
-      				// 	fs.writeFileSync(changeFilePath, fs.readFileSync('templates/' + changeFileName));
-      				// 	return copiedMsg;
-      				// }
+      				// move the current working directory to the plop file path
+      				// this allows this action to work even when the generator is
+      				// executed from inside a subdirectory
       				process.chdir(plop.getPlopfilePath());
 
       				var fs = require('fs');
