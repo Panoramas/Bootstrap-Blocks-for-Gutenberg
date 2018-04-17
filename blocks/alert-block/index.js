@@ -6,10 +6,9 @@ import {
 import React, { Fragment } from '@wordpress/element'
 import { SelectControl, ToggleControl, PanelBody } from '@wordpress/components'
 import { Alert } from 'reactstrap'
+import { __ } from '@wordpress/i18n'
 
 import './style.scss'
-
-const { __ } = wp.i18n // Import __() from wp.i18n
 
 registerBlockType('bsgut/alert-block', {
   title: __('Alert'),

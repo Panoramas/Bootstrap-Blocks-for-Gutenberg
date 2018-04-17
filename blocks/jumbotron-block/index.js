@@ -9,10 +9,9 @@ import {
   PanelBody
 } from '@wordpress/components'
 import { Jumbotron } from 'reactstrap'
+import { __ } from '@wordpress/i18n'
 
 import './style.scss'
-
-const { __ } = wp.i18n // Import __() from wp.i18n
 
 registerBlockType('bsgut/jumbotron-block', {
   title: __('Jumbotron'),
