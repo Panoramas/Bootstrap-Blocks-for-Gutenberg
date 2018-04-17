@@ -1,28 +1,37 @@
-import { registerBlockType } from "@wordpress/blocks";
+import { registerBlockType } from '@wordpress/blocks'
+import React from '@wordpress/element'
 
-registerBlockType("bsgut/intro-block", {
+registerBlockType('bsgut/intro-block', {
   // Title of the block.
-  title: "First Block",
+  title: 'First Block',
 
   // Icon of the block dashicon string (https://developer.wordpress.org/resource/dashicons) or custom svg element.
-  icon: "welcome-learn-more",
+  icon: 'welcome-learn-more',
 
   // Category (common, formatting, layout, widgets, embed)
-  category: "common",
+  category: 'common',
 
   // Description of the block
-  description: "This block introduces you to block creation",
+  description: 'This block introduces you to block creation',
 
   // Keywords to search for the block
-  keywords: ["bootstrap", "gutenberg", "bsgut"],
+  keywords: ['bootstrap', 'gutenberg', 'bsgut'],
 
   // Block's editor representation
-  edit({ className }) {
-    return <p className={className + ' alert alert-info'}>Welcome to Bootstrap Blocks for Gutenberg</p>;
+  edit ({className}) {
+    return (
+      <p className={className + ' alert alert-info'}>
+        Welcome to Bootstrap Blocks for Gutenberg
+      </p>
+    )
   },
 
   // Block's frontend representation
-  save({ attributes }) {
-    return <p className="alert alert-info">Welcome to Bootstrap Blocks for Gutenberg</p>;
+  save ({attributes}) {
+    return (
+      <p className="alert alert-info">
+        Welcome to Bootstrap Blocks for Gutenberg
+      </p>
+    )
   }
-});
+})
