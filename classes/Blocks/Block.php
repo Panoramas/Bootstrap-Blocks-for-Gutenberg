@@ -30,26 +30,48 @@ class Block {
 
   public function run() {
     // DISABLE COMMENT BEFORE PUBLISHING !!!
-    // if(isset($this->enabled_list[$this->block_key]) && $this->enabled_list[$this->block_key] == true) {
+    if(isset($this->enabled_list[$this->block_key]) && $this->enabled_list[$this->block_key] == true) {
       add_action( 'init', array( $this, 'registerBlock'));
-    // }
+    }
   }
 
   // in run, call the assets (enqueue scripts and all) for this block
   public function registerBlock() {
+    $args = array();
+    $args['editor_script'] = Consts::PLUGIN_PREFIX.'-'.$this->block['dir'];
+
     // Register the block script
     wp_register_script(
       Consts::PLUGIN_PREFIX . '-' . $this->block['dir'],
       Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/index.js', __FILE__ ),
       array( 'wp-blocks', 'wp-element' )
+      // filemtime( Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/index.js', __FILE__ ) )
     );
 
-    // if $this->block['css'] = true
+    // Register css EDITOR
+    if (file_exists(Consts::PLUGIN_PREFIX.'/'.$this->block['dir'].'/'.'editor.css')) {
+      wp_register_style(
+        Consts::PLUGIN_PREFIX . '-' . $this->block['dir'] . '-editor',
+        Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/editor.css', __FILE__ ),
+        array( 'wp-edit-blocks' )
+        // filemtime( Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/editor.css', __FILE__ ) )
+      );
 
-    register_block_type( Consts::PLUGIN_PREFIX.'/'.$this->block['dir'], array(
-      'editor_script' => Consts::PLUGIN_PREFIX.'-'.$this->block['dir'],
-      'editor_style' => Consts::PLUGIN_PREFIX.'-'.$this->block['dir'],
-      'style' => Consts::PLUGIN_PREFIX.'-'.$this->block['dir']
-    ) );
+      $args['editor_style'] = Consts::PLUGIN_PREFIX.'-'.$this->block['dir'] . '-editor';
+    }
+
+    // Register css FRONT END
+    if (file_exists(Consts::PLUGIN_PREFIX.'/'.$this->block['dir'].'/'.'style.css')) {
+      wp_register_style(
+        Consts::PLUGIN_PREFIX . '-' . $this->block['dir'],
+        Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/style.css', __FILE__ ),
+        array( 'wp-blocks' )
+        // filemtime( Helper::bsgut_url( Consts::BLOCKS_SCRIPT . '/' . $this->block['dir'] . '/build/style.css', __FILE__ ) )
+      );
+
+      $args['style'] = Consts::PLUGIN_PREFIX.'-'.$this->block['dir'];
+    }
+
+    register_block_type( Consts::PLUGIN_PREFIX.'/'.$this->block['dir'], $args );
   }
 }
