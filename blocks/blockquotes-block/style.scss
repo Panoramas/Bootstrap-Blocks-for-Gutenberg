@@ -1,0 +1,16 @@
+/* Blockquotes */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.wp-block-bsgut-blockquotes-block {
+  @import "~bootstrap/scss/type";
+
+  background-color: red;
+
+  .blockquote-footer {
+    .blocks-plain-text {
+      text-align: inherit;
+    }
+  }
+}

@@ -22,5 +22,14 @@
     "type": "content",
     "icon": "welcome-learn-more",
     "css": true
+  },
+  "blockquotes": {
+    "name": "Blockquotes",
+    "description": "For quoting blocks of content from another source within your document.",
+    "dir": "blockquotes-block",
+    "css": true,
+    "type": "content",
+    "icon": "welcome-learn-more",
+    "keyword": "quote"
   }
 }
