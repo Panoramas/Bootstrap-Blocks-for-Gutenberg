@@ -2,19 +2,19 @@ import {
   registerBlockType,
   InnerBlocks,
   InspectorControls
-} from '@wordpress/blocks'
-import { Fragment } from '@wordpress/element'
+} from '@wordpress/blocks';
+import { Fragment } from '@wordpress/element';
 import {
   ToggleControl,
   PanelBody
-} from '@wordpress/components'
-import { Jumbotron } from 'reactstrap'
-import { __ } from '@wordpress/i18n'
+} from '@wordpress/components';
+import { Jumbotron } from 'reactstrap';
+import { __ } from '@wordpress/i18n';
 
-import './style.scss'
+import './style.scss';
 
-registerBlockType('bsgut/jumbotron-block', {
-  title: __('Jumbotron'),
+registerBlockType( 'bsgut/jumbotron-block', {
+  title: __( 'Jumbotron' ),
   icon: 'welcome-learn-more',
   category: 'common',
   description: __(
@@ -23,7 +23,7 @@ registerBlockType('bsgut/jumbotron-block', {
   keywords: [
     'bootstrap',
     'bsgut',
-    __('hero')
+    __( 'hero' )
   ],
   attributes: {
     fluidify: {
@@ -31,10 +31,10 @@ registerBlockType('bsgut/jumbotron-block', {
     }
   },
 
-  edit ({ className, attributes, setAttributes, isSelected }) {
-    const { fluidify } = attributes
+  edit({ className, attributes, setAttributes, isSelected }) {
+    const { fluidify } = attributes;
 
-    const toggleFluidify = fluidify => setAttributes({fluidify})
+    const toggleFluidify = fluidify => setAttributes({fluidify});
 
     return (
       <Fragment>
@@ -44,10 +44,10 @@ registerBlockType('bsgut/jumbotron-block', {
 
         {isSelected && (
           <InspectorControls key="inspector">
-            <PanelBody title={__('Jumbotron Settings')}>
+            <PanelBody title={__( 'Jumbotron Settings' )}>
               <ToggleControl
-                label={__('Fluid jumbotron')}
-                checked={!!fluidify}
+                label={__( 'Fluid jumbotron' )}
+                checked={!! fluidify}
                 help={__(
                   'To make the jumbotron full width, and without rounded corners.'
                 )}
@@ -57,16 +57,16 @@ registerBlockType('bsgut/jumbotron-block', {
           </InspectorControls>
         )}
       </Fragment>
-    )
+    );
   },
 
-  save ({ attributes }) {
-    const { fluidify } = attributes
+  save({ attributes }) {
+    const { fluidify } = attributes;
 
     return (
       <Jumbotron fluid={fluidify}>
         <InnerBlocks.Content />
       </Jumbotron>
-    )
+    );
   }
-})
+});

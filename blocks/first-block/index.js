@@ -1,8 +1,7 @@
-import { registerBlockType } from '@wordpress/blocks'
+import { registerBlockType } from '@wordpress/blocks';
 
-registerBlockType('bsgut/intro-block', {
-  // Title of the block.
-  title: 'First Block',
+registerBlockType( 'bsgut/intro-block', {
+  title: 'First Block', // Title of the block.
 
   // Icon of the block dashicon string (https://developer.wordpress.org/resource/dashicons) or custom svg element.
   icon: 'welcome-learn-more',
@@ -14,23 +13,23 @@ registerBlockType('bsgut/intro-block', {
   description: 'This block introduces you to block creation',
 
   // Keywords to search for the block
-  keywords: ['bootstrap', 'gutenberg', 'bsgut'],
+  keywords: [ 'bootstrap', 'gutenberg', 'bsgut' ],
 
   // Block's editor representation
-  edit ({className}) {
+  edit({className}) {
     return (
       <p className={className + ' alert alert-info'}>
         Welcome to Bootstrap Blocks for Gutenberg
       </p>
-    )
+    );
   },
 
   // Block's frontend representation
-  save ({attributes}) {
+  save({attributes}) {
     return (
       <p className="alert alert-info">
         Welcome to Bootstrap Blocks for Gutenberg
       </p>
-    )
+    );
   }
-})
+});

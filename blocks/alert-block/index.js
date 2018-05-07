@@ -2,22 +2,22 @@ import {
   registerBlockType,
   InnerBlocks,
   InspectorControls
-} from '@wordpress/blocks'
-import { Fragment } from '@wordpress/element'
-import { SelectControl, ToggleControl, PanelBody } from '@wordpress/components'
-import { Alert } from 'reactstrap'
-import { __ } from '@wordpress/i18n'
+} from '@wordpress/blocks';
+import { Fragment } from '@wordpress/element';
+import { SelectControl, ToggleControl, PanelBody } from '@wordpress/components';
+import { Alert } from 'reactstrap';
+import { __ } from '@wordpress/i18n';
 
-import './style.scss'
+import './style.scss';
 
-registerBlockType('bsgut/alert-block', {
-  title: __('Alert'),
+registerBlockType( 'bsgut/alert-block', {
+  title: __( 'Alert' ),
   icon: 'welcome-learn-more',
   category: 'common',
   description: __(
     'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.'
   ),
-  keywords: ['bootstrap', 'bsgut', 'message'],
+  keywords: [ 'bootstrap', 'bsgut', 'message' ],
   attributes: {
     type: {
       type: 'string',
@@ -27,18 +27,13 @@ registerBlockType('bsgut/alert-block', {
       type: 'boolean',
       default: false
     }
-    // title: {
-    //   type: 'string',
-    //   selector: 'h4.alert-heading'
-    // }
   },
 
-  edit ({className, attributes, setAttributes, isSelected}) {
-    const { type, dismissable } = attributes
+  edit({ className, attributes, setAttributes, isSelected }) {
+    const { type, dismissable } = attributes;
 
-    const updateType = type => setAttributes({ type })
-    const updateDismissable = dismissable => setAttributes({ dismissable })
-    // const updateTitle = title => setAttributes({ title })
+    const updateType = type => setAttributes({ type });
+    const updateDismissable = dismissable => setAttributes({ dismissable });
 
     return (
       <Fragment>
@@ -48,26 +43,26 @@ registerBlockType('bsgut/alert-block', {
 
         {isSelected && (
           <InspectorControls key="inspector">
-            <PanelBody title={__('Alert Settings')}>
+            <PanelBody title={__( 'Alert Settings' )}>
               <SelectControl
-                label={__('Message Type')}
+                label={__( 'Message Type' )}
                 value={type}
                 options={[
-                  { label: __('Primary'), value: 'primary' },
-                  { label: __('Secondary'), value: 'secondary' },
-                  { label: __('Success'), value: 'success' },
-                  { label: __('Danger'), value: 'danger' },
-                  { label: __('Warning'), value: 'warning' },
-                  { label: __('Info'), value: 'info' },
-                  { label: __('Light'), value: 'light' },
-                  { label: __('Dark'), value: 'dark' }
+                  { label: __( 'Primary' ), value: 'primary' },
+                  { label: __( 'Secondary' ), value: 'secondary' },
+                  { label: __( 'Success' ), value: 'success' },
+                  { label: __( 'Danger' ), value: 'danger' },
+                  { label: __( 'Warning' ), value: 'warning' },
+                  { label: __( 'Info' ), value: 'info' },
+                  { label: __( 'Light' ), value: 'light' },
+                  { label: __( 'Dark' ), value: 'dark' }
                 ]}
-                help={__('Select the type of your alert.')}
+                help={__( 'Select the type of your alert.' )}
                 onChange={updateType}
               />
               <ToggleControl
-                label={__('Dismissable')}
-                checked={!!dismissable}
+                label={__( 'Dismissable' )}
+                checked={!! dismissable}
                 help={__(
                   'Enable to display a close button on the upper right corner.'
                 )}
@@ -77,15 +72,15 @@ registerBlockType('bsgut/alert-block', {
           </InspectorControls>
         )}
       </Fragment>
-    )
+    );
   },
 
-  save ({attributes}) {
-    const { type, dismissable } = attributes
+  save({ attributes }) {
+    const { type, dismissable } = attributes;
 
     return (
       <div className={'alert alert-' + type}>
-        {dismissable === true && (
+        {true === dismissable && (
           <button
             type="button"
             className="close"
@@ -97,6 +92,6 @@ registerBlockType('bsgut/alert-block', {
         )}
         <InnerBlocks.Content />
       </div>
-    )
+    );
   }
-})
+});
