@@ -1,35 +1,35 @@
 {
-  "first": {
-    "name": "First",
-    "description": "This is a test",
-    "dir": "first-block",
-    "type": "content",
-    "icon": "welcome-learn-more",
-    "css": false
-  },
-  "alert": {
-    "name": "Alert",
-    "description": "Display an alert message",
-    "dir": "alert-block",
-    "type": "content",
-    "icon": "welcome-learn-more",
-    "css": true
-  },
-  "jumbotron": {
-    "name": "Jumbotron",
-    "description": "Create a hero well that can extend the entire viewport to showcase key messages",
-    "dir": "jumbotron-block",
-    "type": "content",
-    "icon": "welcome-learn-more",
-    "css": true
-  },
-  "blockquotes": {
-    "name": "Blockquotes",
-    "description": "For quoting blocks of content from another source within your document.",
-    "dir": "blockquotes-block",
-    "css": true,
-    "type": "content",
-    "icon": "welcome-learn-more",
-    "keyword": "quote"
-  }
+	"first": {
+		"name": "First",
+		"description": "This is a test",
+		"dir": "first-block",
+		"type": "content",
+		"icon": "welcome-learn-more",
+		"css": false,
+	},
+	"alert": {
+		"name": "Alert",
+		"description": "Display an alert message",
+		"dir": "alert-block",
+		"type": "content",
+		"icon": "welcome-learn-more",
+		"css": true,
+	},
+	"jumbotron": {
+		"name": "Jumbotron",
+		"description": "Create a hero well that can extend the entire viewport to showcase key messages",
+		"dir": "jumbotron-block",
+		"type": "content",
+		"icon": "welcome-learn-more",
+		"css": true,
+	},
+	"blockquotes": {
+		"name": "Blockquotes",
+		"description": "For quoting blocks of content from another source within your document.",
+		"dir": "blockquotes-block",
+		"type": "content",
+		"icon": "welcome-learn-more",
+		"keyword": "quote",
+		"css": true,
+	},
 }
