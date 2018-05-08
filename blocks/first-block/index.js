@@ -1,35 +1,35 @@
 import { registerBlockType } from '@wordpress/blocks';
 
 registerBlockType( 'bsgut/intro-block', {
-  title: 'First Block', // Title of the block.
+	title: 'First Block', // Title of the block.
 
-  // Icon of the block dashicon string (https://developer.wordpress.org/resource/dashicons) or custom svg element.
-  icon: 'welcome-learn-more',
+	// Icon of the block dashicon string (https://developer.wordpress.org/resource/dashicons) or custom svg element.
+	icon: 'welcome-learn-more',
 
-  // Category (common, formatting, layout, widgets, embed)
-  category: 'common',
+	// Category (common, formatting, layout, widgets, embed)
+	category: 'common',
 
-  // Description of the block
-  description: 'This block introduces you to block creation',
+	// Description of the block
+	description: 'This block introduces you to block creation',
 
-  // Keywords to search for the block
-  keywords: [ 'bootstrap', 'gutenberg', 'bsgut' ],
+	// Keywords to search for the block
+	keywords: [ 'bootstrap', 'gutenberg', 'bsgut' ],
 
-  // Block's editor representation
-  edit({className}) {
-    return (
-      <p className={className + ' alert alert-info'}>
-        Welcome to Bootstrap Blocks for Gutenberg
-      </p>
-    );
-  },
+	// Block's editor representation
+	edit({ className }) {
+		return (
+			<p className={className + ' alert alert-info'}>
+				Welcome to Bootstrap Blocks for Gutenberg
+			</p>
+		);
+	},
 
-  // Block's frontend representation
-  save({attributes}) {
-    return (
-      <p className="alert alert-info">
-        Welcome to Bootstrap Blocks for Gutenberg
-      </p>
-    );
-  }
+	// Block's frontend representation
+	save({ attributes }) {
+		return (
+			<p className="alert alert-info">
+				Welcome to Bootstrap Blocks for Gutenberg
+			</p>
+		);
+	}
 });

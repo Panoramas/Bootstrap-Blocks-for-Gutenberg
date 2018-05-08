@@ -4,7 +4,11 @@
     "wp": true
   },
   "rules": {
+     "no-tabs": 0,
+     "indent": ["error", "tab"],
      "jsx-quotes": [2, "prefer-double"],
+     "react/jsx-indent": [2, "tab"],
+     "react/jsx-indent-props": [2, "tab"],
      "react/prop-types": "0",
      "react/react-in-jsx-scope": "0"
     }
