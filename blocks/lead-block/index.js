@@ -16,14 +16,16 @@ import {
 /**
  * Internal dependencies
  */
+import { lead } from '../blocks.json';
 import './style.scss';
 
 registerBlockType( 'bsgut/lead-block', {
-	title: __( 'Lead' ),
-	icon: 'welcome-learn-more',
-	category: 'common',
-	description: __( 'Make a paragraph stand out.' ),
+	title: __( lead.name ),
+	icon: lead.icon,
+	category: lead.category,
+	description: __( lead.description ),
 	keywords: [ __( 'bootstrap' ), __( 'bsgut' ) ],
+
 	attributes: {
 		content: {
 			source: 'children',

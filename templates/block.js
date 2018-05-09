@@ -18,13 +18,14 @@ import { >>DEP1<< } from '@wordpress/blocks'; // Module providing utilities for 
 /**
  * Internal dependencies
  */
+import { >>SLUG<< } from '../blocks.json';
 >>CSS<<
 
 registerBlockType( 'bsgut/>>FOLDER<<', {
-	title: __( '>>NAME<<' ),
-	icon: '>>ICON<<',
-	category: 'common',
-	description: __( '>>DESCRIPTION<<' ),
+	title: __( >>SLUG<<.title ),
+	icon: >>SLUG<<.icon,
+	category: >>SLUG<<.category,
+	description: __( >>SLUG<<.description ),
 	keywords: [ __( 'bootstrap' ), __( 'bsgut' ), __( '>>KEYWORD<<' ) ],
 	attributes: {
 		attr: {

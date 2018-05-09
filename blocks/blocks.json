@@ -3,6 +3,7 @@
     "name": "Alert",
     "description": "Display an alert message",
     "dir": "alert-block",
+		"category": "common",
     "type": "content",
     "icon": "welcome-learn-more",
     "css": true
@@ -11,6 +12,7 @@
     "name": "Jumbotron",
     "description": "Create a hero well that can extend the entire viewport to showcase key messages",
     "dir": "jumbotron-block",
+		"category": "common",
     "type": "content",
     "icon": "welcome-learn-more",
     "css": true
@@ -19,6 +21,7 @@
     "name": "Blockquotes",
     "description": "For quoting blocks of content from another source within your document.",
     "dir": "blockquotes-block",
+		"category": "common",
     "css": true,
     "type": "content",
     "icon": "welcome-learn-more",
@@ -28,6 +31,7 @@
     "name": "Lead",
     "description": "Make a paragraph stand out.",
     "dir": "lead-block",
+		"category": "common",
     "css": false,
     "type": "content",
     "icon": "welcome-learn-more",

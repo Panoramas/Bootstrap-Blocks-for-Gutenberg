@@ -79,6 +79,12 @@ module.exports = function (plop) {
           {
             type: 'modify',
             path: 'blocks/{{folder}}/index.js',
+            pattern: />>SLUG<</gi,
+            template: '{{slug}}'
+          },
+          {
+            type: 'modify',
+            path: 'blocks/{{folder}}/index.js',
             pattern: />>KEYWORD<</gi,
             template: '{{keyword}}'
           },

@@ -8,15 +8,17 @@ import { ToggleControl, PanelBody } from '@wordpress/components';
 import { Jumbotron } from 'reactstrap';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import { jumbotron } from '../blocks.json';
 import './style.scss';
 
 registerBlockType( 'bsgut/jumbotron-block', {
-	title: __( 'Jumbotron' ),
-	icon: 'welcome-learn-more',
-	category: 'common',
-	description: __(
-		'Lightweight, flexible component for showcasing hero unit style content.'
-	),
+	title: __( jumbotron.name ),
+	icon: jumbotron.icon,
+	category: jumbotron.category,
+	description: __( jumbotron.description ),
 	keywords: [ 'bootstrap', 'bsgut', __( 'hero' ) ],
 	attributes: {
 		fluidify: {

@@ -9,15 +9,18 @@ import {
 	PlainText
 } from '@wordpress/blocks'; // Module providing utilities for registering and building blocks
 import { join } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
+import { blockquotes } from '../blocks.json';
 import './style.scss';
 
 registerBlockType( 'bsgut/blockquotes-block', {
-	title: __( 'Blockquotes' ),
-	icon: 'welcome-learn-more',
-	category: 'common',
-	description: __(
-		'For quoting blocks of content from another source within your document.'
-	),
+	title: __( blockquotes.name ),
+	icon: blockquotes.icon,
+	category: blockquotes.category,
+	description: __( blockquotes.description ),
 	keywords: [ __( 'bootstrap' ), __( 'bsgut' ), __( 'quote' ) ],
 	attributes: {
 		align: {

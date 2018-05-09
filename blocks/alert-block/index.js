@@ -8,15 +8,17 @@ import { SelectControl, ToggleControl, PanelBody } from '@wordpress/components';
 import { Alert } from 'reactstrap';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import { alert } from '../blocks.json';
 import './style.scss';
 
 registerBlockType( 'bsgut/alert-block', {
-	title: __( 'Alert' ),
-	icon: 'welcome-learn-more',
-	category: 'common',
-	description: __(
-		'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.'
-	),
+	title: __( alert.name ),
+	icon: alert.icon,
+	category: alert.category,
+	description: __( alert.description ),
 	keywords: [ 'bootstrap', 'bsgut', 'message' ],
 	attributes: {
 		type: {
