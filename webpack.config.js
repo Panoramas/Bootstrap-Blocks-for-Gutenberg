@@ -34,6 +34,7 @@ const entryPointNames = [
   "alert-block",
   "jumbotron-block",
   "blockquotes-block",
+  "lead-block",
 ];
 
 const externals = {};
