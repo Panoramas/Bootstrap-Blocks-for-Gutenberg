@@ -1,12 +1,4 @@
 {
-  "first": {
-    "name": "First",
-    "description": "This is a test",
-    "dir": "first-block",
-    "type": "content",
-    "icon": "welcome-learn-more",
-    "css": false
-  },
   "alert": {
     "name": "Alert",
     "description": "Display an alert message",
