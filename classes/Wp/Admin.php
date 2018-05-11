@@ -35,13 +35,13 @@ class Admin {
 	}
 
   public function enqueue_editor_styles() {
-    wp_enqueue_style(
-      Consts::PLUGIN_PREFIX.'-bootstrap',
-      Helper::bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
-      array(),
-			Consts::VERSION,
-      'all'
-    );
+    // wp_enqueue_style(
+    //   Consts::PLUGIN_PREFIX.'-bootstrap',
+    //   Helper::bsgut_url( 'node_modules/bootstrap/dist/css/bootstrap.min.css', __FILE__ ),
+    //   array(),
+		// 	Consts::VERSION,
+    //   'all'
+    // );
   }
 
 }
