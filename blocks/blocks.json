@@ -32,7 +32,7 @@
     "description": "Make a paragraph stand out.",
     "dir": "lead-block",
 		"category": "common",
-    "css": false,
+    "css": true,
     "type": "content",
     "icon": "welcome-learn-more",
     "keyword": ""
